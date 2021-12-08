@@ -91,6 +91,7 @@ def draw():
     screen.clear()
     
     if jiemian == 0:
+        player.image = 'player'
         a.center = 400, 350
         beijin0.draw()
         screen.draw.text("Start", (360, 330), fontsize = 50)
@@ -220,7 +221,8 @@ def on_mouse_move(pos):
     global x, y, jiemian
     x = player.x = pos[0]
     y = player.y = pos[1]
-    if jiemian == 1 and beijin1_leiqu1.collidepoint(pos) or beijin1_leiqu2.collidepoint(pos) or beijin1_leiqu3.collidepoint(pos) or beijin1_leiqu4.collidepoint(pos) or beijin1_leiqu5.collidepoint(pos) or beijin1_leiqu6.collidepoint(pos) or beijin1_leiqu7.collidepoint(pos) or beijin1_leiqu8.collidepoint(pos):#触碰第一张图雷区
+    print("横坐标：", x,"纵坐标", y)
+    if jiemian == 1 and (x > 719  and y > 144) or y > 705 or x < 64 or (x < 550 and y < 110) or beijin1_leiqu1.collidepoint(pos) or beijin1_leiqu2.collidepoint(pos) or beijin1_leiqu3.collidepoint(pos) or beijin1_leiqu4.collidepoint(pos) or beijin1_leiqu5.collidepoint(pos) or beijin1_leiqu6.collidepoint(pos) or beijin1_leiqu7.collidepoint(pos) or beijin1_leiqu8.collidepoint(pos):#触碰第一张图雷区
         si()
     elif jiemian == 2 and ( y > 655 or y < 36 or x > 755 or (y < 306 and x < 542) or (162 < y and y < 300 and x < 614) or (y > 163 and x > 686) or (543 < x and x < 680 and 377 < y and y < 443) or (433 < x and x < 470 and 309 < y and y < 570) or (148< x and x< 621 and 512< y and y< 571)):
         si()
