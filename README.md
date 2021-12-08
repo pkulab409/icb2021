@@ -1,5 +1,8 @@
 # icb2021
 计算概论B-2021秋季-7班-Python
+## 代码仓库
+- [国际github](https://github.com/pkulab409/icb2021)
+- [国内gitee](https://gitee.com/pkulab409/icb2021)
 ## 课堂实录
 - [B站视频](https://www.bilibili.com/video/BV1sf4y1n7VA)
 
