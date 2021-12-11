@@ -14,7 +14,7 @@ Choices = ['part1', 'part2', 'part3', 'part4', 'part5']
 choices=[]
 le=int(level[-1])
 if le==-1 :
-    subprocess.run([sys.executable, "game5/error_error_error.py"])
+    subprocess.run([sys.executable, "game5/error_error.py"])
     exit()
 elif le==-2:
     part=-2
