@@ -15,7 +15,7 @@ boss.pos=350,200
 bossplus.pos=350,200
 boss.blood=700
 bossplus.blood=1000
-player.blood=2000
+player.blood=20
 music.play("music3")
 
 #用于储存子弹的子弹库与储存敌方的敌人库
@@ -61,7 +61,7 @@ def draw():
         screen.draw.text(*['%d' % boss.blood], (720,50), color='black', fontsize=80,fontname='fanti')
     else:
         screen.draw.text(*['霧雨魔理沙!生命值'], (720,20), color='black', fontsize=30,fontname='fanti')
-        screen.draw.text(*['%d' % bossplus.blood], (720,50), color='black', fontsize=30,fontname='fanti')
+        screen.draw.text(*['%d' % bossplus.blood], (720,50), color='black', fontsize=80,fontname='fanti')
     screen.draw.text(*['博麗靈夢生命值'], (720,800), color='black', fontsize=30,fontname='fanti')
     screen.draw.text(*['%d' % player.blood], (720,830), color='black', fontsize=30,fontname='fanti')
     screen.draw.text(*['惡靈退散 冷卻時間'], (720,860), color='black', fontsize=30,fontname='fanti')
