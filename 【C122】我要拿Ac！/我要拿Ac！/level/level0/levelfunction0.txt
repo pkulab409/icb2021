@@ -1,0 +1,61 @@
+def draw_hidden_map_0():
+    global flag1,flag2,flag3,flag4
+    if flag1==0 and player.x>=300:
+        load_map('./level/level0/hidden_trap.txt')
+        flag1 = 1
+    if flag2==0 and flag1==1 and player.x>=600:
+        load_map('./level/level0/hidden_trap_1.txt')
+        flag2 = 1
+    if flag4==0 and flag2==1 and player.x<=760 and player.y<=579 and player.x>=730:
+        load_map('./level/level0/hidden_trap_3.txt')
+        flag4 = 1
+    if flag3==0 and flag2==1 and player.x>=980:
+        load_map('./level/level0/hidden_trap_2.txt')
+        flag3 = 1
+
+
+def initial_0():
+    global g_start, g_quit, g_instruction, bullets, blocks, acblocks, trapblocks,\
+           flag1,flag2,flag3,flag4, terrainx, terrainy, ac_time
+           
+    player.x = player.y = 0
+    player.isalive = 1
+    player.score = 100
+    player.shield_release = 0
+    player.shield_isready = 1
+    player.shield_isappear = 0
+    enemy.center = (1000, 100)
+    g_start = g_instruction = 0
+    
+    bullets=[]
+    blocks=[]
+    acblocks=[]
+    trapblocks=[]
+    terrainx=[(- 32 + 24 * i)for i in range(54)]
+    terrainy=[[] for i in range(53)]
+    load_map('./level/level0/map_1.txt')
+    ac_time = 0
+    flag1 = flag2 = flag3 = flag4 = 0
+
+def ac_hints_0():
+    if ac_time == 1:
+        screen.draw.text("--Sometimes this 'Accepted' is not what \nyou want, go and find another one.", (675, 300), color='black', fontsize=30, fontname='dpcomic')
+    else:
+        screen.draw.text("This is for beginners. Enjoy yourself!", (300, 100), color='black', fontsize=40, fontname='dpcomic')
+    if flag2 == 1 and flag4 == 0:
+        screen.draw.text("If some obstacles seem insurmountable.", (300, 150), color='black', fontsize=40, fontname='dpcomic')
+        screen.draw.text("Try to find hidden blocks.", (300, 200), color='black', fontsize=40, fontname='dpcomic')
+    elif flag1 == 1:
+        screen.draw.text("Some blocks are hidden unless you approach them.", (300, 150), color='black', fontsize=40, fontname='dpcomic')
+        screen.draw.text("And some blocks will just kill you.", (300, 200), color='black', fontsize=40, fontname='dpcomic')
+
+def ac_is_hit_0():
+    global acblocks, ac_time, game_state, bullets
+    for b in acblocks:
+        if b.colliderect(player):
+            ac_time += 1
+            if ac_time <= 1:
+                b.center = [int(b.tag2.pop(0)),int(b.tag2.pop(0))]
+                sounds.blip.play()
+            elif ac_time == 2:
+                game_state = 'pass' #过关

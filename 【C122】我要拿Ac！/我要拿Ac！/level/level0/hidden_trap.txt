@@ -1,0 +1,8 @@
+350 679 trap
+371 679 trap
+392 679 trap
+550 679 trap move -3
+571 679 trap move -3
+592 679 trap move -3
+613 679 trap move -3
+634 679 trap move -3

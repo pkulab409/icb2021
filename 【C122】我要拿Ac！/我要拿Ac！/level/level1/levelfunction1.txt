@@ -1,0 +1,54 @@
+def draw_hidden_map_1():
+    global flag1, flag2, flag3
+    
+    if flag1 == 0 and player.x <= 300 and player.y >= 700:
+        flag1 = 1
+        load_map('./level/level1/map_2.txt')
+    if flag2 == 0 and 745 <= player.x <= 770 and 190 <= player.y <= 284:
+        flag2 = 1
+        load_map('./level/level1/hidden_trap.txt')
+    if ac_time == 2 and flag3 == 0 and 0 <= player.x <= 340 and player.y >= 100:
+        flag3 = 1
+        load_map('./level/level1/hidden_map2.txt')
+
+
+
+def initial_1():
+    global g_start, g_quit, g_instruction, bullets, blocks, acblocks, trapblocks,\
+           flag1, flag2, flag3, terrainx, terrainy, ac_time
+           
+    player.x = player.y = 0
+    player.isalive = 1
+    player.score = 100
+    player.shield_release = 0
+    player.shield_isready = 1
+    player.shield_isappear = 0
+    enemy.center = (0, 700)
+    g_start = g_instruction = 0
+    
+    bullets=[]
+    blocks=[]
+    acblocks=[]
+    trapblocks=[]
+    terrainx=[(- 32 + 24 * i)for i in range(54)]
+    terrainy=[[] for i in range(53)]
+    load_map('./level/level1/map_1.txt')
+    ac_time = 0
+    flag1 = flag2 = flag3 = 0
+
+def ac_hints_1():
+    if ac_time == 1:
+        screen.draw.text("--Sometimes this 'Accepted' is not what \nyou want, go and find another one.", (650, 450), color='black', fontsize=30, fontname='dpcomic')
+    elif ac_time == 2:
+        screen.draw.text("--I promise, it's the last time.", (650, 550), color='black', fontsize=30, fontname='dpcomic')
+
+def ac_is_hit_1():
+    global acblocks, ac_time, game_state, bullets
+    for b in acblocks:
+        if b.colliderect(player):
+            ac_time += 1
+            if ac_time <= 2:
+                b.center = [int(b.tag2.pop(0)),int(b.tag2.pop(0))]
+                sounds.blip.play()
+            elif ac_time == 3:
+                game_state = 'pass'

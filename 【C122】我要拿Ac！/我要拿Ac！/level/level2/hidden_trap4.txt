@@ -1,0 +1,11 @@
+816 199 trap
+840 199 trap
+864 199 trap
+888 199 trap
+912 199 trap
+936 199 trap
+960 199 trap
+984 199 trap
+1008 199 trap
+1032 199 trap
+1056 199 trap

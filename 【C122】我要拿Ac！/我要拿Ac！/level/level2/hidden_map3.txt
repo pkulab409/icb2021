@@ -1,0 +1,19 @@
+360 654 trap
+360 630 trap
+360 606 trap
+360 582 trap
+360 558 trap
+360 534 trap
+360 510 trap
+360 486 trap
+360 462 trap
+
+696 423 trap
+696 399 trap
+696 375 trap
+696 351 trap
+696 327 trap
+696 303 trap
+696 279 trap
+696 255 trap
+696 231 trap

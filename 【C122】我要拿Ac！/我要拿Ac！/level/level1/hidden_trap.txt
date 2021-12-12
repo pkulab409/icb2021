@@ -1,0 +1,7 @@
+776 287 trap
+800 287 trap
+968 191 trap
+992 191 trap
+1016 191 trap
+1040 191 trap
+890 129 trap

@@ -1,0 +1,7 @@
+779 679 trap move -8
+800 679 trap move -8
+821 679 trap move -8
+842 679 trap move -8
+863 679 trap move -8
+884 679 trap move -8
+905 679 trap move -8
